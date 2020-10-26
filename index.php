@@ -17,5 +17,6 @@ $controller = new InsertController();
 if(isset($_GET['page']) && $_GET['page'] === 'info') {
     $display = new DisplayStudent();
     $display->display();
+} else {
+    $controller->render();
 }
-$controller->render();

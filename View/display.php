@@ -9,10 +9,22 @@
 </head>
 <body>
 <p><a href="index.php">Back to homepage</a></p>
-<ul>
-<?php foreach ($students as $student) :?>
-<li><?php echo $student?></li>
-<?php endforeach;?>
-</ul>
+
+<table>
+    <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>Profile Link</th>
+    </tr>
+    <?php foreach ($students as $student) :?>
+        <tr>
+            <td style="border: gray solid 2px"><?php echo $student->getFirstName()?></td>
+            <td style="border: gray solid 2px"><?php echo $student->getLastName()?></td>
+            <td style="border: gray solid 2px"><?php echo $student->getEmail()?></td>
+            <td style="border: gray solid 2px"><a href="profile.php?user=<?php echo $student->getId()?>"><?php echo $student->getFirstName()."'s "?>profile</a></td>
+        </tr>
+    <?php endforeach;?>
+</table>
 </body>
 </html>

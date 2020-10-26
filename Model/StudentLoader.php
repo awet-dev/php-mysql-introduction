@@ -17,13 +17,17 @@ class StudentLoader extends Connection
             $statement->execute();
             $students = $statement->fetchAll();
             foreach ($students as $student) {
-                $this->students[$student['id']] = new Student((string)$student['first_name'], (string)$student['last_name'], (string)$student['email']);
+                $this->students[$student['id']] = new Student((int)$student['id'], (string)$student['first_name'], (string)$student['last_name'], (string)$student['email']);
             }
         }
     }
 
     public function getStudents() : array {
         return $this->students;
+    }
+
+    public function countStudent(): int {
+        return count($this->students);
     }
 
 
