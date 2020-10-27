@@ -31,4 +31,7 @@ class StudentLoader extends Connection
     }
 
 
+    public function displayStudent($id) {
+        return $this->students[$id];
+    }
 }

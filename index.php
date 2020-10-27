@@ -17,6 +17,12 @@ $controller = new InsertController();
 if(isset($_GET['page']) && $_GET['page'] === 'info') {
     $display = new DisplayStudent();
     $display->display();
-} else {
+} elseif (isset($_GET['user'])) {
+    $profile = new DisplayStudent();
+    $profile->displayProfile($_GET['user']);
+}
+else {
     $controller->render();
 }
+
+
