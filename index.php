@@ -13,7 +13,7 @@ require 'Model/StudentLoader.php';
 require 'Controller/InsertController.php';
 require 'Controller/DisplayStudent.php';
 
-$controller = new InsertController();
+
 if(isset($_GET['page']) && $_GET['page'] === 'info') {
     $display = new DisplayStudent();
     $display->display();
@@ -22,6 +22,7 @@ if(isset($_GET['page']) && $_GET['page'] === 'info') {
     $profile->displayProfile($_GET['user']);
 }
 else {
+    $controller = new InsertController();
     $controller->render();
 }
 

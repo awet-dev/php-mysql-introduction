@@ -16,6 +16,7 @@ class DisplayStudent
 
         $studentLoader = new StudentLoader();
         $student = $studentLoader->displayStudent($id);
+
         require 'View/profile.php';
     }
 

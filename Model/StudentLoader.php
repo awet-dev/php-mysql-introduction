@@ -5,10 +5,6 @@ class StudentLoader extends Connection
 {
     private array $students;
 
-    /**
-     * StudentLoader constructor.
-     * @param array $student
-     */
     public function __construct()
     {
         if (empty($this->student)) {
@@ -17,7 +13,7 @@ class StudentLoader extends Connection
             $statement->execute();
             $students = $statement->fetchAll();
             foreach ($students as $student) {
-                $this->students[$student['id']] = new Student((int)$student['id'], (string)$student['first_name'], (string)$student['last_name'], (string)$student['email']);
+                $this->students[$student['id']] = new Student((int)$student['id'], (string)$student['first_name'], (string)$student['last_name'], (string)$student['email'], (string)$student['password']);
             }
         }
     }
