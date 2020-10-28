@@ -6,7 +6,6 @@
     <input name="password" type="password" placeholder="Enter Password" required">
     <input name="confirm_password" type="password" placeholder="Confirm Password" required>
     <input type="submit" value="Save">
-    <p><a href="index.php?page=info">To info page</a></p>
     <p><a href="index.php?page=logIn">To log in page</a></p>
 </form>
 <?php include 'include/footer.php'?>
