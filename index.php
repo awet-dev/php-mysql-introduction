@@ -23,9 +23,13 @@ if(isset($_GET['page']) && $_GET['page'] === 'info') {
 } elseif (isset($_GET['page']) && $_GET['page'] === 'logIn') {
     $logIn = new InsertController();
     $logIn->logIn();
+} elseif (isset($_POST['Edit'])) {
+    $studentDelete = new InsertController();
+    $studentDelete->deleteData($_POST['studentId']);
 } else {
     $controller = new InsertController();
     $controller->render();
 }
+
 
 

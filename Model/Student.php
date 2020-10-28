@@ -62,5 +62,12 @@ class Student extends Connection
         $this->saveStudent($this->openConnection());
     }
 
+    public function delete(PDO $data)
+    {
+        $handle = $data->prepare('DELETE FROM student WHERE id = :id');
+        $handle->bindValue('id', $this->getId());
+        $handle->execute();
+    }
+
 
 }

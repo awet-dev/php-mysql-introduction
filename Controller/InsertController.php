@@ -14,6 +14,8 @@ class InsertController
     }
 
     public function logIn() {
+
+
         if (!empty($_POST['email'])) {
             $loader = new StudentLoader();
             $students = $loader->getStudents();
@@ -31,6 +33,18 @@ class InsertController
         }
         require 'View/logIn.php';
     }
+
+
+    public function deleteData($id) {
+        if (isset($_POST['Edit'])) {
+            $loader = new StudentLoader();
+            $user = $loader->displayStudent($id);
+            $student = new Student((int)$user['id'], (string)$user['first_name'], (string)$user['last_name'], (string)$user['email'], (string)$user['password']);
+            $connection = new Connection();
+            $student->delete($connection->openConnection());
+        }
+    }
+
 
 
 }
