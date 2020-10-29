@@ -24,8 +24,10 @@ class ViewController
         header("location: http://localhost/crud-mysql/index.php");
     }
 
-    public function updateData($student, $id) {
+    public function updateData($id) {
         $data = new Database();
+        $student = $data->getStudent($id);
+        $student = new Student($id, $student[0], $student[1], $student[2], $student[3]);
         $data->updateStudent($student, $id);
         header("location: http://localhost/crud-mysql/index.php?user=".$id);
     }

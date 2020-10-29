@@ -55,6 +55,17 @@ class Database
         $handle->execute();
     }
 
+
+    // get student from the data base
+    public function getStudent($id): array
+    {
+        $pdo = $this->openConnection();
+        $handler = $pdo->prepare('SELECT first_name, last_name, email, password FROM student WHERE id = :id');
+        $handler->bindValue(':id', $id);
+        $handler->execute();
+        return $handler->fetch();
+    }
+
     public function updateStudent($student, $id)
     {
         $pdo = $this->openConnection();
