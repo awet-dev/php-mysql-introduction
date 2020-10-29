@@ -1,5 +1,5 @@
-<?php include 'include/header.php'?>
-<p><a href="index.php">Back to homepage</a></p>
+<?php include 'includes/Header.php' ?>
+
 <table class="table table-striped">
     <thead>
     <tr>
@@ -22,4 +22,5 @@
     <?php endforeach;?>
     </tbody>
 </table>
-<?php include 'include/footer.php'?>
+    <a href="index.php?page=login">Back To Sign In form</a>
+<?php include 'includes/Footer.php' ?>

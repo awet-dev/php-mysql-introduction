@@ -1,38 +1,38 @@
 <?php
 
-
-class Student extends Connection
+declare(strict_types=1);
+class Student
 {
     private int $id;
-    private string $firstName;
-    private string $lastName;
+    private string $first_name;
+    private string $last_name;
     private string $email;
     private string $password;
 
-    public function __construct(int $id, string $firstName, string $lastName, string $email, string $password)
+
+    public function __construct(int $id, string $first_name, string $last_name, string $email, string $password)
     {
         $this->id = $id;
-        $this->firstName = $firstName;
-        $this->lastName = $lastName;
+        $this->first_name = $first_name;
+        $this->last_name = $last_name;
         $this->email = $email;
         $this->password = $password;
     }
 
-    public function getId(): int {
+    public function getId(): int
+    {
         return $this->id;
     }
 
     public function getFirstName(): string
     {
-        return $this->firstName;
+        return $this->first_name;
     }
-
 
     public function getLastName(): string
     {
-        return $this->lastName;
+        return $this->last_name;
     }
-
 
     public function getEmail(): string
     {
@@ -43,31 +43,5 @@ class Student extends Connection
     {
         return $this->password;
     }
-
-
-    //create students
-    public function saveStudent(PDO $data)
-    {
-        $handle = $data->prepare('INSERT INTO student (first_name, last_name, email, password) VALUES (:first_name, :last_name, :email, :password)');
-        $handle->bindValue('first_name', ucfirst($this->getFirstName()));
-        $handle->bindValue('last_name', ucfirst($this->getLastName()));
-        $handle->bindValue('email', $this->getEmail());
-        $handle->bindValue('password', $this->getPassword());
-        $handle->execute();
-    }
-
-    //save student
-    public function save()
-    {
-        $this->saveStudent($this->openConnection());
-    }
-
-    public function delete(PDO $data)
-    {
-        $handle = $data->prepare('DELETE FROM student WHERE id = :id');
-        $handle->bindValue('id', $this->getId());
-        $handle->execute();
-    }
-
 
 }
