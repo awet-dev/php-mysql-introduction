@@ -25,11 +25,10 @@ class ViewController
     }
 
     public function updateData($id) {
+        require 'View/profile.php';
+        $student = new Student($id, $_POST['first_name'] , $_POST['last_name'], $_POST['email'], $_POST['password']);
         $data = new Database();
-        $student = $data->getStudent($id);
-        $student = new Student($id, $student[0], $student[1], $student[2], $student[3]);
         $data->updateStudent($student, $id);
-        header("location: http://localhost/crud-mysql/index.php?user=".$id);
     }
 
     public function login() {

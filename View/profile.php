@@ -15,5 +15,15 @@
     </div>
     <button><a href="index.php">Back To Register</a></button>
 </div>
+
+<?php if(isset($_GET['EditId'])) :?>
+    <form action="" method="post">
+        <input name="first_name" type="text" placeholder="first_name">
+        <input name="last_name" type="text" placeholder="last-name">
+        <input name="email" type="email" placeholder="email">
+        <input name="password" type="password" placeholder="password">
+        <a href="index.php?confirm=<?php echo $student->getId()?>" class="card-link">confirm</a>
+    </form>
+<?php endif;?>
 <?php include 'includes/Footer.php' ?>
 

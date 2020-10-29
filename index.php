@@ -21,6 +21,9 @@ if (isset($_GET['page']) && $_GET['page'] === 'login') { // to log in and see al
 } elseif (isset($_GET['id'])) { // to see one of the profiles
     $delete = new ViewController();
     $delete->deleteData($_GET['id']);
+} elseif (isset($_GET['confirm'])) { // update
+    $delete = new ViewController();
+    $delete->updateData($_GET['confirm']);
 } else {
       $insert = new ViewController(); // the registration form
       $insert->insertData();
