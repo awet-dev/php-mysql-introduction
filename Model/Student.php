@@ -10,14 +10,20 @@ class Student
     private string $password;
 
 
-    public function __construct(int $id, string $first_name, string $last_name, string $email, string $password)
+    public function __construct(string $first_name, string $last_name, string $email, string $password)
     {
-        $this->id = $id;
         $this->first_name = $first_name;
         $this->last_name = $last_name;
         $this->email = $email;
         $this->password = $password;
     }
+
+
+    public function setId(int $id): void
+    {
+        $this->id = $id;
+    }
+
 
     public function getId(): int
     {
